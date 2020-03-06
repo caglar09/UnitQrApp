@@ -1,0 +1,5 @@
+export const alert_constant = {
+    ALERT_ROOT_LOADING: 'ALERT_ROOT_LOADING',
+    ALERT_SUCCESS: 'ALERT_SUCCESS',
+    ALERT_FAILURE: 'ALERT_FAILURE'
+}
