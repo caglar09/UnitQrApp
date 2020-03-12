@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { Container, Header, Body, Content, Left, Right, Title, Fab, View, Button, Card, CardItem, Grid, Col, Row, Text, Badge, Spinner } from 'native-base'
-
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
-import { GetActiveAudit } from '../../service/audit'
 import { Logout } from '../../service/login'
 import { connect } from 'react-redux';
+import { auditActions } from '../../redux/action';
 
-import { auditActions } from '../../redux/action'
+import {homeStyle as styles} from './style';
+import {globalCss} from '../../assets/style';
 
 class Home extends Component {
     constructor(props) {
@@ -50,22 +50,22 @@ class Home extends Component {
     render() {
         return (
             <Container style={[styles.container]}>
-                <Header transparent={true} style={{ display: 'flex', alignItems: 'center', elevation: 1 }}>
-                    <Left>
+                <Header transparent={true} style={styles.header}>
+                    <Left style={{flex:2}}>
                         <TouchableOpacity onPress={() => { this.logout() }}>
                             <SimpleLineIcons name="logout" size={24} />
                         </TouchableOpacity>
                     </Left>
-                    <Body>
+                    <Body style={{flex:15,alignItems:'center'}}>
                         <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Aktif Denetlemeleriniz</Text>
                     </Body>
-
                 </Header>
                 {this.props.audit.isLoading ? <ActivityIndicator color='#3B4BB3' style={[styles.loader]} /> : null}
-                <Content style={{ borderWidth: 0, height: '100%', width: '100%' }}>
 
+                <Content style={[styles.content]}>
                     {
-                        this.props.audit.audit !== {} && this.state.audit?.unit !== undefined ? <Card style={[styles.card]} noShadow>
+                        this.props.audit.audit !== {} && this.state.audit?.unit !== undefined ? 
+                        <Card style={[styles.card]} noShadow>
                             <CardItem style={[styles.cardItem]}>
                                 <Text style={[styles.itemInfoRowText]}>İstasyon bilgileri</Text>
                             </CardItem>
@@ -139,13 +139,13 @@ class Home extends Component {
 
                         </Card> : null
                     }
-                    <Card noShadow>
+                    <Card noShadow style={{}}>
                         <CardItem>
                             <Body>
                                 <Grid>
                                     <Col style={{ textAlign: 'center' }}>
-                                        <TouchableOpacity style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} onPress={() => this.componentDidMount()}>
-                                            <Text style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                        <TouchableOpacity style={styles.releoadBtn} onPress={() => this.componentDidMount()}>
+                                            <Text style={styles.releoadBtnText}>
                                                 <SimpleLineIcons name="refresh" size={32} />
                                             </Text>
                                         </TouchableOpacity>
@@ -171,11 +171,11 @@ class Home extends Component {
                         active={true}
                         direction="up"
                         containerStyle={{}}
-                        style={{ backgroundColor: '#5067FF', borderRadius: 50, width: 200, right: 0, }}
+                        style={styles.startAudit}
                         position="bottomRight"
                         onPress={() => this.props.navigation.push('QrCode', { isActiveAudit: this.state.isActiveAudit })}>
-                        <Text style={{ fontSize: 20 }}>
-                            Denetime Başla <SimpleLineIcons name="arrow-right-circle" size={22} style={{ position: 'absolute', }} />
+                        <Text style={globalCss.fs20}>
+                            Denetime Başla <SimpleLineIcons name="arrow-right-circle" size={22} style={styles.startAuditPosition} />
                         </Text>
                     </Fab> : null
                 }
@@ -184,41 +184,6 @@ class Home extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-    },
-    loader: { position: 'absolute', zIndex: 1000, backgroundColor: '#fff', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' },
-    list: {
-        marginTop: 20
-    },
-    listItem: {
-        marginLeft: 0
-    },
-    itemInfoRowText: {
-        fontSize: 20,
-        fontWeight: "bold"
-    },
-    itemSelectText: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
-    itemRow: {
-        display: 'flex',
-        flexDirection: 'row',
-        alignContent: 'center',
-        flexWrap: 'wrap'
-    },
-    item: {
-        marginLeft: 10
-    },
-    card: {
-        paddingVertical: 5,
-        paddingBottom: 15
-    },
-    cardItem: {
-        borderRadius: 0
-    }
-})
 
 const mapStateProps = state => {
     const { audit } = state;

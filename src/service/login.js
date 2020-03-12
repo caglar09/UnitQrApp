@@ -1,6 +1,6 @@
 import * as s from '../../app.json';
-import { Alert, AsyncStorage, ToastAndroid } from 'react-native';
-
+import { Alert, ToastAndroid } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 export  function Login(email, password) {
 
     if (email == '' || password == '') {

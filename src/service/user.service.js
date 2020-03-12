@@ -1,5 +1,7 @@
 import * as s from '../../app.json';
-import { AsyncStorage } from 'react-native';
+import { } from 'react-native';
+
+import AsyncStorage from '@react-native-community/async-storage';
 export default class UserService {
 
     static login(email, password) {

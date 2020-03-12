@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Unit Qr Audit APP</string>
+    <string name="app_name">Lena İş Takip</string>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="splash_scren_logo_description">logo</string>
+    <string name="company_name">Lena</string>
+    <string name="app_name_1">İş Takip</string>
+    <string name="app_name_2">Sistemi</string>
 </resources>

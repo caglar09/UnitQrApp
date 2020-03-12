@@ -1,5 +1,7 @@
 import * as s from '../../app.json';
-import { Alert, AsyncStorage } from 'react-native';
+import { Alert } from 'react-native';
+
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function GetActiveAudit() {
     return AsyncStorage.getItem('token').then((result) => {

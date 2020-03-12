@@ -12,20 +12,23 @@ export const alert_Actions = {
 function Success(message) {
     return {
         type: alert_constant.ALERT_SUCCESS,
-        error: message
+        error: message,
+        errorType:'success'
     }
 }
 
 function Failure(message) {
     return {
         type: alert_constant.ALERT_FAILURE,
-        error: message
+        error: message,
+        errorType:'success'
     }
 }
 
 function Loading(message) {
     return {
         type: alert_constant.ALERT_ROOT_LOADING,
-        error: message
+        error: message,
+        errorType:'warning'
     }
 }

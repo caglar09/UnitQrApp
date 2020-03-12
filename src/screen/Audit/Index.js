@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, Alert } from 'react-native'
-import { Container, Content, Radio, List, ListItem, Left, Body, Button, Right, Text, Card, CardItem, Grid, Row, Col, Fab, Header } from 'native-base'
-import { StartAudit } from '../../service/audit'
+import { Container, Content, Radio, List, ListItem, Left, Body, Button, Text, Card, CardItem, Grid, Col, Fab, Header } from 'native-base'
+
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import { connect } from 'react-redux';
 import { auditActions } from '../../redux/action';
+
 class Audit extends Component {
     constructor(props) {
         super(props);

@@ -16,6 +16,8 @@ import QrCodeReader from './src/screen/Qr/Index';
 import Audit from './src/screen/Audit/Index';
 import SignIn from './src/screen/SignIn/Index';
 import Alert from './src/screen/Alert/Index'
+
+
 import UserService from './src/service/user.service';
 
 const AppStackContainer = createStackNavigator({
@@ -36,11 +38,11 @@ const AppStackContainer = createStackNavigator({
   }
 }, {
   headerMode: 'none',
-  
+
 });
 
-UserService.getLoggedUser().then((va)=>{
-  
+UserService.getLoggedUser().then((va) => {
+
 })
 const AppContainer = createAppContainer(AppStackContainer);
 
@@ -49,17 +51,17 @@ class App extends React.Component {
     super(props)
   }
   render() {
-
-
     return (
-      <Provider store={store}>
-        <Container>
-          <Alert />
-          <View style={{ flex: 1 }}>
-            <AppContainer/>
-          </View >
-        </Container>
-      </Provider>
+      <Root>
+        <Provider store={store}>
+          <Container>
+            <Alert />
+            <View style={{ flex: 1 }}>
+              <AppContainer />
+            </View >
+          </Container>
+        </Provider>
+      </Root>
     );
   }
 };

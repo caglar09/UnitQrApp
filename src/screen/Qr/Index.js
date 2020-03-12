@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, AsyncStorage, Alert, ScrollView } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet, Alert, ScrollView } from 'react-native'
 import { RNCamera } from 'react-native-camera';
 import { Button, Spinner } from 'native-base'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';

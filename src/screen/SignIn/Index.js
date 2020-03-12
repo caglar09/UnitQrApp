@@ -1,14 +1,9 @@
 import React, { Component, useCallback, useEffect } from 'react';
-import { StyleSheet, TouchableOpacity, Alert, Text, ScrollView, TextInput, Image, Button, AsyncStorage, ToastAndroid, BackHandler } from 'react-native'
-import { Container, Header, Body, Content, Left, Right, Title, Fab, View, Card, CardItem, Grid, Col, Row, Badge, Toast } from 'native-base'
-import Popover from 'react-native-popover-view'
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-import { singinActions } from '../../redux/action'
+import { StyleSheet, TouchableOpacity, Alert, Text, ScrollView, TextInput, Image, Button, ToastAndroid, BackHandler } from 'react-native'
+import {  View } from 'native-base';
+import AsyncStorage from '@react-native-community/async-storage';
+import { singinActions } from '../../redux/action';
 import { connect } from 'react-redux';
-
-import { Alert as AlertComponent } from '../Alert/Index';
-import { ToastC } from '../Component/ToastC'
-
 
 class SignIn extends Component {
     constructor(props) {
@@ -76,11 +71,10 @@ class SignIn extends Component {
                     <Image source={require('../../assets/lena.png')} style={{ width: 100, height: 100, marginBottom: 50 }} />
                 </View>
                 <View style={[styles.inputRow]}>
-                    <TextInput style={[styles.input]} placeholder="E-posta adresiniz" textContentType='emailAddress' ref={ref => this.email = ref} onChangeText={(e) => { this.handleSetText(e, 'email') }}></TextInput>
-
+                    <TextInput style={[styles.input]} placeholder="E-posta adresiniz" textContentType='emailAddress' ref={ref => this.email = ref} onChangeText={(e) => { this.handleSetText(e, 'email') }} placeholderTextColor="black"></TextInput>
                 </View>
                 <View style={[styles.inputRow]}>
-                    <TextInput style={[styles.input]} placeholder="Şifreniz" secureTextEntry={true} textContentType='password' ref={ref => this.password = ref} onChangeText={(e) => { this.handleSetText(e, 'password') }}></TextInput>
+                    <TextInput style={[styles.input]} placeholder="Şifreniz" secureTextEntry={true} textContentType='password' ref={ref => this.password = ref} onChangeText={(e) => { this.handleSetText(e, 'password') }}  placeholderTextColor="black"></TextInput>
                 </View>
                 <View style={[styles.inputRow]}>
                     <TouchableOpacity style={[styles.signInBtn]} onPress={() => this.login()}>
@@ -125,7 +119,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#e4e4e4',
         width: '100%',
-        paddingHorizontal: 15
+        paddingHorizontal: 15,
+        height:60,
+        color:'#000'
     },
     signInBtn: {
         width: '100%',

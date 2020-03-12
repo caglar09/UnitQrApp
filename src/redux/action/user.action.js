@@ -1,6 +1,7 @@
 import { user_constant, alert_constant } from "../constant"
 import UserService from '../../service/user.service'
-import { AsyncStorage } from "react-native";
+import {  } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage';
 export const singinActions = {
     login: Login,
     logout: LogOut

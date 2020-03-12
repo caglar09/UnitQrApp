@@ -1,5 +1,6 @@
 import * as s from '../../app.json';
-import { AsyncStorage } from 'react-native';
+
+import AsyncStorage from '@react-native-community/async-storage';
 export default class AuditService {
 
     static async GetActiveAudit() {
