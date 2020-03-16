@@ -21,7 +21,8 @@ public class SplashScreen extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        Handler h=new Handler();
+
+       Handler h=new Handler();
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -29,5 +30,6 @@ public class SplashScreen extends AppCompatActivity {
                 startActivity(i);
                 finish();
             }
-        },1500);    }
+        },1500);
+    }
 }

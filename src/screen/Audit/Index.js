@@ -93,19 +93,19 @@ class Audit extends Component {
         return (
             <Container style={styles.container}>
                 <Header style={[styles.header]} androidStatusBarColor="#3B4BB3" >
-                    <Left >
+                    <Left style={{ flex: 2 }}>
                         <Button onPress={() => this.props.navigation.push('QrCode')} transparent>
-                            <SimpleLineIcons name="arrow-left" size={16} style={{ position: 'absolute', color: '#fff' }} />
+                            <SimpleLineIcons name="arrow-left" size={16} style={{ position: 'absolute', color: '#000' }} />
                         </Button>
                     </Left>
-                    <Body></Body>
+                    <Body style={{ flex: 18 }}>
+                        <Text style={[styles.itemInfoRowText]}>İstasyon bilgileri</Text>
+                    </Body>
                 </Header>
                 <Content padder scrollEnabled={true}>
                     {
                         this.state.unit ? <Card style={[styles.card]}>
-                            <CardItem style={[styles.cardItem]}>
-                                <Text style={[styles.itemInfoRowText]}>İstasyon bilgileri</Text>
-                            </CardItem>
+
                             <CardItem header button style={[styles.cardItem]}>
                                 <Text> {this.state.unit?.name}  ({this.state.unit?.unitCode})</Text>
                             </CardItem>
@@ -190,7 +190,10 @@ const styles = StyleSheet.create({
         alignItems: 'stretch',
         paddingVertical: 20
     },
-    header: { backgroundColor: '#3B4BB3' },
+    header: {
+        backgroundColor: '#fff',
+        height: 'auto'
+    },
     list: {
         marginTop: 20
     },
